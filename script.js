@@ -1,4 +1,3 @@
-let field = 16 * 16;
 
 const parent = document.getElementById('container');
 
@@ -8,15 +7,18 @@ btnReset.addEventListener("click",reset);
 let btnSize = document.getElementById('size');
 btnSize.addEventListener("click",getSize);
 
-for(let i = 0;i<field;i++){
-    let div = document.createElement('div');
-    div.classList.add('square');
-    parent.appendChild(div);
-    div.addEventListener("mouseover",function(){
-        div.style.backgroundColor = "black";
-        
-    })
-    
+
+
+function createField(size){
+    for(let i = 0;i<size * size;i++){
+        let div = document.createElement('div');
+        div.classList.add('square');
+        parent.appendChild(div);
+        div.addEventListener("mouseover",function(){
+            div.style.backgroundColor = "black";
+            
+        })
+    }
 }
 
 function reset(){
@@ -28,9 +30,20 @@ function reset(){
 
 function getSize(){
     let input = prompt("Size of the grid: ");
-    return input * input;
+    let square = document.querySelectorAll(".square");
+    square.forEach(element => {
+        element.remove();
+    })
+    createField(input);
+    calcBasis(input);
+
 }
 
+function calcBasis(input){
+    let root = document.documentElement;
+    let x = Math.round(100/input)
+    root.style.setProperty('--flex',x.toString()+'%');
+}
 
 
 

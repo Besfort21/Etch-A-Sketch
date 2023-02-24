@@ -4,10 +4,7 @@ body {
 }
 
 #buttons {
-    margin-top: 10%;
     display: flex;
-    margin-left: 40%;
-
 }
 
 #buttons #reset {
@@ -33,19 +30,19 @@ body {
     margin-bottom: 25%;
     margin-left: 25%;
     margin-right: 25%;
-    
+
 }
 
 div.square {
     background-color: white;
     border: 1px solid black;
-    flex-basis: 5.7%;
+    box-sizing: border-box;
+    width: 40px;
     height: 40px;
-
+    flex: var(--flex);
+    flex-grow: 0;
 }
 
-@media screen and (max-width: 768px) {
-    div.square{
-        flex-basis: 5.3%; /*square basis -0.4*/
-    }
+:root {
+    --flex:0%;
 }
