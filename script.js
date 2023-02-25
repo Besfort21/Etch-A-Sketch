@@ -47,7 +47,8 @@ function calcBasis(input){
         x = Math.floor(100/input);
     }
 
-    root.style.setProperty('--flex',x.toString()+'%');
+    root.style.setProperty('--widthp',x.toString()+'%');
+    root.style.setProperty('--size',input);
 }
 
 

@@ -24,8 +24,9 @@ body {
 }
 
 #container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    /*flex-wrap: wrap;*/
+    grid-template-columns: repeat(var(--size),var(--widthp));
     margin-top: 25%;
     margin-bottom: 25%;
     margin-left: 25%;
@@ -37,12 +38,13 @@ div.square {
     background-color: white;
     border: 1px solid black;
     box-sizing: border-box;
-    width: 40px;
-    height: 40px;
-    flex: var(--flex);
+    width: auto;
+    min-height: 20px;
+    /*flex: var(--flex);*/
 
 }
 
 :root {
-    --flex:0%;
+    --widthp:0%;
+    --size:0;
 }
