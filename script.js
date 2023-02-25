@@ -41,7 +41,12 @@ function getSize(){
 
 function calcBasis(input){
     let root = document.documentElement;
+    let y = 100/input;
     let x = Math.round(100/input)
+    if(x-y <= 0.5){
+        x = Math.floor(100/input);
+    }
+
     root.style.setProperty('--flex',x.toString()+'%');
 }
 
